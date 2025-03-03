@@ -2,3 +2,4 @@ node_modules/
 .venv/
 src/css/tailwind.css
 src/css/tailwind.purged.min.css
+build/
