@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.5",
+    "@tailwindcss/postcss": "^4.0.4",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "purgecss": "^7.0.2",
+    "tailwindcss": "^4.0.4"
+  },
+  "name": "pelicantheme",
+  "version": "1.0.0",
+  "description": "Personal Pelican Theme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.0"
+  },
+  "main": "postcss.config.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/css/style.css -o ./src/css/tailwind.css && postcss src/css/tailwind.css -o src/css/tailwind.purged.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IwanIDev/PelicanTheme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IwanIDev/PelicanTheme/issues"
+  },
+  "homepage": "https://github.com/IwanIDev/PelicanTheme#readme"
+}
