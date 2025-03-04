@@ -33,12 +33,18 @@ def main():
     css.mkdir(exist_ok=True)
     css_path = css.resolve()
 
+    static = build / 'static'
+    static.mkdir(exist_ok=True)
+    static_path = static.resolve()
+
     html_ignore = []
     css_ignore = ['tailwind.css', 'style.css']
 
     copy_with_extension(current_dir / 'src', build_path, 'html')
 
     copy_with_extension(current_dir / 'src', css_path, 'css', css_ignore)
+
+    copy_with_extension(current_dir / 'src', static_path, '*')
 
 if __name__ == "__main__":
     main()
