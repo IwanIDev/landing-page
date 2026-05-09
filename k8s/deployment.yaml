@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landing-page 
+  namespace: iwanidotdev
+  labels:
+    app: astro-blog
+    component: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: landing-page 
+      component: web
+  template:
+    metadata:
+      labels:
+        app: landing-page 
+        component: web
+    spec:
+      containers:
+      - name: web
+        image: ghcr.io/iwanidev/landing-page:master
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 80 
+          protocol: TCP
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8380
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8380
+          initialDelaySeconds: 5
+          periodSeconds: 5
